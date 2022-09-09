@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   mvc:
@@ -18,7 +18,7 @@ spring:
       max-request-size: 200MB
   datasource:
     driver-class-name: com.alibaba.druid.proxy.DruidDriver
-    url: jdbc:mysql://101.43.9.197:3306/questions
+    url: jdbc:mysql://101.43.9.197:3306/questions?useUnicode=true&characterEncoding=UTF-8&userSSL=false&serverTimezone=UTC
     username: questions
     password: lzq@@951201
 aio:
