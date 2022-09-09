@@ -1,0 +1,131 @@
+server:
+  port: 1170
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/laboratory?useUnicode=true&characterEncoding=UTF-8&userSSL=false&serverTimezone=UTC
+    password: pwd
+    username: root
+  redis:
+    password: 123465
+    host: 127.0.0.1
+    database: 0
+    port: 6379
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: lab
+  mail:
+    host: smtp.qq.com
+    username: xxx@qq.com
+    password: xxx
+    default-encoding: UTF-8
+    nickname: xxx@qq.com
+    #其他此参数
+    properties:
+      mail:
+        smtp:
+          #如果用ssl方式，需要配置以下属性
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            port: 465
+          starttls:
+            enable: true
+            required: true
+
+logging:
+  config: classpath:logback-lab-prod.xml
+
+aio:
+  knife4j:
+    title: Lab在线接口文档 - 0.1.0
+    group: ''
+    description: Lab 在线接口文档
+    version: 1.0
+    contact:
+      name: yiidii
+      url: 'https://blog.yiidii.cn'
+      email: 'yd1141309981@gmail.com '
+  log:
+    path: logs-dev
+    level: info
+    type: 'MONGO'
+    enabled: true
+    ali:
+      endpoint: cn-beijing.log.aliyuncs.com
+      accessKeyId: LTA***Tab
+      accessKeySecret: MR****5
+      project: lab
+      logStore: java
+      mdcFields: trace-id
+  strategy:
+    base-package: cn.yiidii.openapi
+  netty:
+    wsChat:
+      server:
+        path: /ws/im
+        port: 7880
+    agent:
+      server:
+        port: 7890
+        idleTime: 10
+  jd:
+    ua: 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5 UCBrowser/13.4.2.1122'
+    selenium:
+      chrome:
+        session:
+          max-num: 11
+          timeout: 121
+        driver-url: 'http://localhost:6001/wd/hub'
+  ignore-urls:
+    - '/oauth/token'
+    - '/doc.html'
+    - '/webjars/css/**'
+    - '/webjars/js/**'
+    - '/v2/api-docs'
+    - '/swagger-resources'
+    - '/favicon.ico'
+    - '/accessRecord/**'
+    - '/jd/**'
+    - '/telecom/**'
+    - '/wm/**'
+    - '/test/**'
+    - '/free/**'
+    - '/dict/**'
+    - '/attachment/**'
+
+  job:
+    admin:
+      addresses: http://127.0.0.1:1150/xxl-job-admin
+    accessToken: 'xxx'
+    executor:
+      appname: laboratory
+      address:
+      ip:
+      port: 1151
+      logPath: logs/job/
+      logRetentionDays: 30
+  rocketmq:
+    name-server: 127.0.0.1:9876
+    producer:
+      group: lab-producer
+    consumer:
+      group: lab-default-consumer
+      topic: lab-default-topic
+  lab:
+    adminNotify:
+      mail: xxx@qq.com
+      enabled: true
+  file:
+    type: s3
+    endpoint: oss-cn-beijing.aliyuncs.com
+    customDomain: https://xxx.oss-cn-beijing.aliyuncs.com
+    bucketName: xxx
+    region: cn-beijing
+    accessKey: xxx
+    secret-key: xxx
+    path-style-access: false

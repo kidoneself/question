@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: '@project.artifactId@'
+  profiles:
+    active: '@profile.active@'
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  datasource:
+    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+    url: jdbc:mysql://101.43.9.197:3306/questions
+    username: questions
+    password: lzq@@951201
+aio:
+  knife4j:
+    title: Lab在线接口文档 - 0.1.0
+    group: ''
+    description: Lab 在线接口文档
+    version: 1.0
+    contact:
+      name: yiidii
+      url: 'https://blog.yiidii.cn'
+      email: 'yd1141309981@gmail.com '
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  # 配置枚举 支持通配符 * 或者 ; 分割
+  type-enums-package: cn.yiidii.openapi.uaa.model.enums;cn.yiidii.pigeon.common.core.base.enumeration
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  sql-log:
+    enable: true
