@@ -3,7 +3,7 @@ package com.kidoneself.question.controller;
 
 import com.kidoneself.aio.common.core.base.R;
 import com.kidoneself.question.modle.dto.UserDto;
-import com.kidoneself.question.modle.service.UserService;
+import com.kidoneself.question.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +31,12 @@ public class UserController {
     @ApiOperation("更新用户信息")
     public R<?> putUser(@RequestBody UserDto dto) {
         return userService.putUser(dto);
+    }
+
+    @GetMapping("/post")
+    @ApiOperation("获取用户")
+    public R<?> getUser(@RequestParam(name = "用户ID", required = false) Integer id, @RequestParam(name = "openId", required = false) String openId) {
+        return userService.getUser(id, openId);
     }
 
 }

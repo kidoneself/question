@@ -1,4 +1,4 @@
-package com.kidoneself.question.modle.service.Impl;
+package com.kidoneself.question.service.Impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kidoneself.aio.common.core.base.R;
 import com.kidoneself.question.mapper.DeptMapper;
 import com.kidoneself.question.modle.entity.Dept;
-import com.kidoneself.question.modle.service.DeptService;
+import com.kidoneself.question.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

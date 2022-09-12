@@ -2,15 +2,13 @@ package com.kidoneself.question.modle.dto;
 
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@Builder
 public class UserDto {
 
 
@@ -35,5 +33,10 @@ public class UserDto {
     @ApiModelProperty(value = "部门id")
     private Integer deptId;
 
+    @ApiModelProperty(value = "是否已经完成手机号等信息")
+    private Boolean hasDo;
+
+    @ApiModelProperty(value = "是否是新用户")
+    private Boolean isNew;
 
 }

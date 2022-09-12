@@ -2,7 +2,7 @@ package com.kidoneself.question.controller;
 
 
 import com.kidoneself.aio.common.core.base.R;
-import com.kidoneself.question.modle.service.DeptService;
+import com.kidoneself.question.service.DeptService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

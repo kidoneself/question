@@ -22,7 +22,7 @@ aio:
     version: 1.0
     contact:
       name: aio
-      url: ''
+      url: 'http://api.kidoneself.com:8081/doc.html#/home'
       email: 'kiddoneself@gmail.com '
   log:
     path: logs-dev

@@ -1,4 +1,4 @@
-package com.kidoneself.question.modle.service;
+package com.kidoneself.question.service;
 
 
 import com.kidoneself.aio.common.core.base.R;
@@ -9,4 +9,6 @@ public interface UserService {
     R<?> postUser(UserDto dto);
 
     R<?> putUser(UserDto dto);
+
+    R<?> getUser(Integer id, String openId);
 }
