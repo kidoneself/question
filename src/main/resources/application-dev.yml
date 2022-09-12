@@ -6,7 +6,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://101.43.9.197:3306/questions?characterEncoding=utf8&useUnicode=true&useSSL=true
     username: questions
     password: lzq@@951201
@@ -21,9 +21,9 @@ aio:
     description: Lab 在线接口文档
     version: 1.0
     contact:
-      name: yiidii
-      url: 'https://blog.yiidii.cn'
-      email: 'yd1141309981@gmail.com '
+      name: aio
+      url: ''
+      email: 'kiddoneself@gmail.com '
   log:
     path: logs-dev
     level: info
