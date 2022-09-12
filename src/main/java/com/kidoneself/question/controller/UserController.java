@@ -33,7 +33,7 @@ public class UserController {
         return userService.putUser(dto);
     }
 
-    @GetMapping("/post")
+    @GetMapping("/get")
     @ApiOperation("获取用户")
     public R<?> getUser(@RequestParam(name = "用户ID", required = false) Integer id, @RequestParam(name = "openId", required = false) String openId) {
         return userService.getUser(id, openId);

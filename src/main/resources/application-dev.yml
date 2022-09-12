@@ -13,6 +13,12 @@ spring:
 
 logging:
   config: classpath:logback-lab-dev.xml
+  file:
+    path: D:/logs/springBoot
+  pattern:
+    console: '[%d{yyyy-MM-dd HH:mm:ss}] -- [%-5p]: [%c] -- %m%n'
+    file: '[%d{yyyy-MM-dd HH:mm:ss}] -- [%-5p]: [%c] -- %m%n'
+
 
 aio:
   knife4j:
@@ -24,6 +30,8 @@ aio:
       name: aio
       url: 'http://api.kidoneself.com:8081/doc.html#/home'
       email: 'kiddoneself@gmail.com '
-  log:
-    path: logs-dev
-    level: info
+
+#打印sql
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

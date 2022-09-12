@@ -55,7 +55,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public R<?> getUser(Integer id, String openId) {
         try {
-
             if (BeanUtil.isEmpty(id) && BeanUtil.isEmpty(openId)) {
                 return R.failed("请填写正确的参数");
             }
