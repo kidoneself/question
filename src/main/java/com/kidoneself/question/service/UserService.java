@@ -11,4 +11,7 @@ public interface UserService {
     R<?> putUser(UserDto dto);
 
     R<?> getUser(Integer id, String openId);
+
+    R<?> getWxUser(String code);
+
 }

@@ -1,12 +1,12 @@
 server:
-  port: 8081
+  port: 8082
 
 
 spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://101.43.9.197:3306/questions?characterEncoding=utf8&useUnicode=true&useSSL=true
     username: questions
     password: lzq@@951201
@@ -35,3 +35,4 @@ aio:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

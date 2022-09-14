@@ -39,4 +39,11 @@ public class UserController {
         return userService.getUser(id, openId);
     }
 
+    @GetMapping("/wx/login")
+    @ApiOperation("微信code获取用户信息")
+    public R<?> getUser(@RequestParam(name = "用户ID", required = false) String code) {
+        return userService.getWxUser(code);
+    }
+
+
 }
