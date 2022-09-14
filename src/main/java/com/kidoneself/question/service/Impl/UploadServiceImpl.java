@@ -19,9 +19,9 @@ public class UploadServiceImpl implements UploadService {
 
     @Override
     public String uploadImage(MultipartFile file) throws IOException {
-        if (!uploadProperties.getAllowTypes().contains(file.getContentType())) {
-            throw new IOException("文件上传类型错误！");
-        }
+//        if (!uploadProperties.getAllowTypes().contains(file.getContentType())) {
+//            throw new IOException("文件上传类型错误！");
+//        }
         String fileName = UploadUtils.generateFileName(Objects.requireNonNull(file.getOriginalFilename()));
         file.transferTo(new File(uploadProperties.getPath() + fileName));
         return fileName;

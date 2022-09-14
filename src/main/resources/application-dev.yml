@@ -36,3 +36,7 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+file:
+  upload:
+    path: /Users/lizhiqiang/IdeaProjects/app/
+    allowTypes: 'jpeg'
