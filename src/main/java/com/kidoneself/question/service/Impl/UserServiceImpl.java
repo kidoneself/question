@@ -129,10 +129,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                     String phone = user.getPhone();
                     String realName = user.getRealName();
                     userDto.setHasDo(BeanUtil.isNotEmpty(deptId) && BeanUtil.isNotEmpty(phone) && BeanUtil.isNotEmpty(realName));
+                    BeanUtil.copyProperties(hasUser, userDto);
                     userDto.setIsNew(false);
-                    BeanUtil.copyProperties(user, userDto);
                 } else {
                     userMapper.insert(user);
+                    BeanUtil.copyProperties(user,userDto);
+                    userDto.setHasDo(false);
                     userDto.setIsNew(true);
                 }
             }

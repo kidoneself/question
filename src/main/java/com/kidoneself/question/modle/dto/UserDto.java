@@ -33,10 +33,10 @@ public class UserDto {
     @ApiModelProperty(value = "部门id")
     private Integer deptId;
 
-    @ApiModelProperty(value = "是否已经完成手机号等信息")
+    @ApiModelProperty(value = "是否已经完成手机号等信息 true-是  false-否")
     private Boolean hasDo;
 
-    @ApiModelProperty(value = "是否是新用户")
+    @ApiModelProperty(value = "是否是新用户 true-是  false-否")
     private Boolean isNew;
 
 }
