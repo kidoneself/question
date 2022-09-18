@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kidoneself.question.mapper.ScoreMapper">
+    <select id="getScore" resultType="com.kidoneself.question.modle.dto.ScoreDto">
+        select sec_to_time(sec) as time,
+    score.scores     as scores,
+    user.real_name   as realName,
+    score.month_num  as month
+        from score
+            left join user
+        on user.id = score.uid
+        where month_num = #{month}
+        order by sec_to_time(sec);
+    </select>
+
+    <select id="getAllScore" resultType="com.kidoneself.question.modle.dto.ScoreDto">
+        select sec_to_time(SUM(sec)) as time,
+       SUM(scores)           as scores,
+       user.real_name        as realName
+        from score
+            left join user
+        on user.id = score.uid
+        group by uid
+        order by scores desc, time asc;
+    </select>
+</mapper>

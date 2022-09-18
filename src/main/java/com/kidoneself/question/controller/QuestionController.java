@@ -24,13 +24,13 @@ public class QuestionController {
 
     @GetMapping("/get")
     @ApiOperation("根据id获取题目信息")
-    public R<?> getQuestion(@RequestParam(name = "题目Id") Integer id) {
+    public R<?> getQuestion(@RequestParam(name = "id") Integer id) {
         return questionService.getQuestion(id);
     }
 
     @GetMapping("/get/list")
     @ApiOperation("获取题目列表")
-    public R<?> getQuestionList(@RequestParam(name = "获取N条题目（可以被100整除）") Integer num) {
+    public R<?> getQuestionList(@RequestParam(name = "num") Integer num) {
         return questionService.getQuestionList(num);
     }
 

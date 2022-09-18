@@ -4,11 +4,8 @@
     <select id="getQuestionList" resultType="com.kidoneself.question.modle.entity.Question">
         SELECT *, 100 / #{limit} as sorce
         FROM questions
-        WHERE month_num = 1
-          and id >=
-              ((SELECT MAX(id) FROM questions WHERE month_num = 1) -
-               (SELECT MIN(id) FROM questions WHERE month_num = 1)) *
-              RAND() + (SELECT MIN(id) FROM questions WHERE month_num = 1)
-            limit #{limit};
+        where month_num = 1
+        ORDER BY RAND()
+        LIMIT #{limit};
     </select>
 </mapper>

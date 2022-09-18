@@ -17,6 +17,7 @@ import com.kidoneself.question.modle.entity.Wx;
 import com.kidoneself.question.service.UserService;
 import com.kidoneself.question.utils.ConstantWxUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,19 +25,6 @@ import javax.annotation.Resource;
 @Service
 @Slf4j
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-
-
-//    @Value("${wx.open.app_id}")
-//    private String appId;
-//    @Value("${wx.open.app_secret}")
-//    private String appSecret;
-//    @Value("${wx.open.redirect_url}")
-//    private String redirectUrl;
-//
-//    public static String WX_OPEN_APP_ID;
-//    public static String WX_OPEN_APP_SECRET;
-//    public static String WX_OPEN_REDIRECT_URL;
-
 
     //获取openid和access_token的连接
     private static String getOpenId = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=APPSECRET&code=CODE&state=123&grant_type=authorization_code";
@@ -120,20 +108,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             String userInfoUrl = getUserInfo.replace("ACCESS_TOKEN", wx.getAccess_token()).replace("OPENID", wx.getOpenid());
             String userInfoBody = HttpUtil.createGet(userInfoUrl).execute().body();
             User user = JSONObject.parseObject(userInfoBody, User.class);
+            log.info("userInfoBody:{}", user.toString());
             if (ObjectUtil.isNotEmpty(user) && ObjectUtil.isNotEmpty(user.getOpenid())) {
                 LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
                 userLambdaQueryWrapper.eq(User::getOpenid, user.getOpenid());
                 User hasUser = userMapper.selectOne(userLambdaQueryWrapper);
+                log.info("deptId:{}--phone:{}--realName:{}", user.getDeptId(), user.getPhone(), user.getRealName());
                 if (BeanUtil.isNotEmpty(hasUser)) {
-                    Integer deptId = user.getDeptId();
-                    String phone = user.getPhone();
-                    String realName = user.getRealName();
-                    userDto.setHasDo(BeanUtil.isNotEmpty(deptId) && BeanUtil.isNotEmpty(phone) && BeanUtil.isNotEmpty(realName));
+                    log.info("hasUser:{}", hasUser.toString());
+                    log.info("用户已经存在");
+                    Integer deptId = hasUser.getDeptId();
+                    String phone = hasUser.getPhone();
+                    String realName = hasUser.getRealName();
+                    userDto.setHasDo( BeanUtil.isNotEmpty(deptId)&& BeanUtil.isNotEmpty(phone) && BeanUtil.isNotEmpty(realName));
                     BeanUtil.copyProperties(hasUser, userDto);
                     userDto.setIsNew(false);
                 } else {
+                    log.info("新注册用户");
                     userMapper.insert(user);
-                    BeanUtil.copyProperties(user,userDto);
+                    BeanUtil.copyProperties(user, userDto);
                     userDto.setHasDo(false);
                     userDto.setIsNew(true);
                 }
@@ -143,6 +136,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         return R.ok(userDto);
     }
-
 
 }
