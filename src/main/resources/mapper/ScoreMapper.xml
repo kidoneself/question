@@ -10,7 +10,7 @@
             left join user
         on user.id = score.uid
         where month_num = #{month}
-        order by sec_to_time(sec);
+        order by  scores desc, sec_to_time(sec);
     </select>
 
     <select id="getAllScore" resultType="com.kidoneself.question.modle.dto.ScoreDto">

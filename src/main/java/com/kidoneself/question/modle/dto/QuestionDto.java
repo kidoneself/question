@@ -32,4 +32,10 @@ public class QuestionDto {
     @ApiModelProperty(value = "几月份的题目")
     private String monthNum;
 
+    @ApiModelProperty(value = "几月份的题目")
+    private Integer score;
+
+    @ApiModelProperty(value = "体型")
+    private Integer type;
+
 }

@@ -1,6 +1,7 @@
 package com.kidoneself.question.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.kidoneself.question.modle.dto.QuestionDto;
 import com.kidoneself.question.modle.entity.Question;
 import com.kidoneself.question.modle.entity.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,5 +14,5 @@ import java.util.List;
 public interface QuestionMapper extends BaseMapper<Question> {
 
 
-    List<Question> getQuestionList(@Param("limit") Integer limit);
+    List<QuestionDto> getQuestionList(@Param("limit") Integer limit);
 }

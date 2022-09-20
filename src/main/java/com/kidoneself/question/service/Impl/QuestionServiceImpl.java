@@ -2,19 +2,12 @@ package com.kidoneself.question.service.Impl;
 
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kidoneself.aio.common.core.base.R;
-import com.kidoneself.aio.common.core.exception.BizException;
 import com.kidoneself.question.mapper.QuestionMapper;
-import com.kidoneself.question.mapper.UserMapper;
 import com.kidoneself.question.modle.dto.QuestionDto;
-import com.kidoneself.question.modle.dto.UserDto;
 import com.kidoneself.question.modle.entity.Question;
-import com.kidoneself.question.modle.entity.User;
 import com.kidoneself.question.service.QuestionService;
-import com.kidoneself.question.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +36,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
 
     @Override
     public R<?> getQuestionList(Integer limit) {
-        List<Question> questions = questionMapper.getQuestionList(limit);
+        List<QuestionDto> questions = questionMapper.getQuestionList(limit);
         return R.ok(questions);
     }
 

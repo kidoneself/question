@@ -35,7 +35,7 @@ public class ScoreController {
     }
 
     @GetMapping("all")
-    @ApiOperation("月份排行榜")
+    @ApiOperation("总排行榜")
     public R<?> getAllScore() {
         return scoreService.getAllScore();
     }
