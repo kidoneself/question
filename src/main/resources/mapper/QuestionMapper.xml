@@ -4,8 +4,8 @@
     <select id="getQuestionList" resultType="com.kidoneself.question.modle.dto.QuestionDto">
         SELECT *, 100 / #{limit} as score
         FROM questions
-        where month_num = 1
+        where month_num = #{month}
         ORDER BY RAND()
-        LIMIT #{limit};
+            LIMIT #{limit};
     </select>
 </mapper>

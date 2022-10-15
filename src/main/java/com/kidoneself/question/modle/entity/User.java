@@ -20,7 +20,6 @@ import java.sql.Date;
 public class User {
 
 
-
     @TableId(type = IdType.AUTO)
     @ApiModelProperty(value = "id")
     private Integer id;

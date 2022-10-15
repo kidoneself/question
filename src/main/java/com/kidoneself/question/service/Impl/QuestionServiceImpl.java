@@ -2,6 +2,7 @@ package com.kidoneself.question.service.Impl;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kidoneself.aio.common.core.base.R;
 import com.kidoneself.question.mapper.QuestionMapper;
@@ -36,7 +37,8 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
 
     @Override
     public R<?> getQuestionList(Integer limit) {
-        List<QuestionDto> questions = questionMapper.getQuestionList(limit);
+        int month = DateUtil.thisMonth() + 1;
+        List<QuestionDto> questions = questionMapper.getQuestionList(limit, month);
         return R.ok(questions);
     }
 

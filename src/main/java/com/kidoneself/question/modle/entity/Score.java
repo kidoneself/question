@@ -10,8 +10,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
-import java.sql.Timestamp;
-
 @Data
 @TableName(value = "score")
 @RequiredArgsConstructor

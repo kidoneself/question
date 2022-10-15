@@ -3,7 +3,6 @@ package com.kidoneself.question.controller;
 
 import com.kidoneself.aio.common.core.base.R;
 import com.kidoneself.question.service.CmsService;
-import com.kidoneself.question.service.DeptService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +26,7 @@ public class CmsController {
     @GetMapping("/get")
     @ApiOperation("获取文章列表")
     public R<?> getCms(@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize,
-                            @RequestParam(name = "pageNum", defaultValue = "1") Integer pageNum) {
+                       @RequestParam(name = "pageNum", defaultValue = "1") Integer pageNum) {
         return cmsService.getCms(pageSize, pageNum);
     }
 

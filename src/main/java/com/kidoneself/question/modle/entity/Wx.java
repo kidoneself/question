@@ -1,9 +1,6 @@
 package com.kidoneself.question.modle.entity;
 
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +19,6 @@ public class Wx {
 
     @ApiModelProperty(value = "openid")
     private String openid;
-
 
 
 }

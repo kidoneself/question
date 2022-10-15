@@ -17,7 +17,6 @@ import com.kidoneself.question.modle.entity.Wx;
 import com.kidoneself.question.service.UserService;
 import com.kidoneself.question.utils.ConstantWxUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -120,7 +119,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                     Integer deptId = hasUser.getDeptId();
                     String phone = hasUser.getPhone();
                     String realName = hasUser.getRealName();
-                    userDto.setHasDo( BeanUtil.isNotEmpty(deptId)&& BeanUtil.isNotEmpty(phone) && BeanUtil.isNotEmpty(realName));
+                    userDto.setHasDo(BeanUtil.isNotEmpty(deptId) && BeanUtil.isNotEmpty(phone) && BeanUtil.isNotEmpty(realName));
                     BeanUtil.copyProperties(hasUser, userDto);
                     userDto.setIsNew(false);
                 } else {

@@ -3,7 +3,6 @@ package com.kidoneself.question;
 import com.kidoneself.aio.common.knife4j.annotation.EnablePigeonKnife4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -19,6 +18,7 @@ public class QuestionApplication implements WebMvcConfigurer {
     /**
      * https://www.xiaominfo.com/docs/faq/springboot-404
      * 解决doc.html 访问不到
+     *
      * @param registry
      */
 

@@ -3,7 +3,6 @@ package com.kidoneself.question.controller;
 
 import com.kidoneself.aio.common.core.base.R;
 import com.kidoneself.question.modle.entity.Score;
-import com.kidoneself.question.service.QuestionService;
 import com.kidoneself.question.service.ScoreService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
